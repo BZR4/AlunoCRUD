@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project-private xmlns="http://www.netbeans.org/ns/project-private/1">
+    <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
+    <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
+        <group>
+            <file>file:/Users/BZR4/NetBeansProjects/AlunoCRUD/src/presenter/LoginPresenter.java</file>
+            <file>file:/Users/BZR4/NetBeansProjects/AlunoCRUD/src/util/PasswordUtil.java</file>
+            <file>file:/Users/BZR4/NetBeansProjects/AlunoCRUD/src/dao/UsuarioDAO.java</file>
+            <file>file:/Users/BZR4/NetBeansProjects/AlunoCRUD/src/view/Login.java</file>
+            <file>file:/Users/BZR4/NetBeansProjects/AlunoCRUD/src/model/Usuario.java</file>
+            <file>file:/Users/BZR4/NetBeansProjects/AlunoCRUD/src/view/MainForm.java</file>
+            <file>file:/Users/BZR4/NetBeansProjects/AlunoCRUD/src/dao/ConexaoFactory.java</file>
+            <file>file:/Users/BZR4/NetBeansProjects/AlunoCRUD/src/presenter/TestMD5.java</file>
+        </group>
+    </open-files>
+</project-private>
