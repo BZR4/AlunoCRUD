@@ -5,6 +5,9 @@
  */
 package view;
 
+import javax.swing.JButton;
+import javax.swing.JPasswordField;
+import javax.swing.JTextField;
 import model.Usuario;
 import presenter.LoginPresenter;
 import view.MainForm;
@@ -13,7 +16,7 @@ import view.MainForm;
  *
  * @author BZR4
  */
-public class Login extends javax.swing.JFrame {
+public class LoginView extends javax.swing.JFrame {
     
     LoginPresenter loginPresenter;
 
@@ -21,11 +24,25 @@ public class Login extends javax.swing.JFrame {
      * Creates new form TesteSenha
      * @param loginPresenter
      */
-    public Login(LoginPresenter loginPresenter) {
+    public LoginView(LoginPresenter loginPresenter) {
         this.loginPresenter = loginPresenter;
         initComponents();
     }   
 
+    public JButton getjButtonLogin() {
+        return jButtonLogin;
+    }
+
+    public JPasswordField getjPasswordFieldSenha() {
+        return jPasswordFieldSenha;
+    }
+
+    public JTextField getjTextFieldUsuario() {
+        return jTextFieldUsuario;
+    }
+
+    
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always

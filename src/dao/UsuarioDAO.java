@@ -16,7 +16,7 @@ import model.Usuario;
  */
 public class UsuarioDAO {
     
-    public boolean buscarDadosLogin(Usuario usuario){
+    public boolean buscarDadosLogin(Usuario usuario) throws SQLException, ClassNotFoundException, Exception{
         String sql = "select usuario, senha from usuario where usuario = ? and senha = ?";
         boolean result = false;
         try(PreparedStatement preparedStatement = ConexaoFactory.getConexao().prepareStatement(sql);) {
@@ -24,15 +24,16 @@ public class UsuarioDAO {
             preparedStatement.setString(2, usuario.getSenha());
             ResultSet resultSet = preparedStatement.executeQuery();
             result = resultSet.next();
-        } catch (SQLException ex) {
+        } catch (Exception ex) {
              System.out.println("BuscarDadosLogin\nException: "+ex.getLocalizedMessage());
+             throw new Exception(String.format("DAO -> Tipo de excecao: %s\nMensagem: %s", ex.getClass().getSimpleName(), ex.getMessage()));
         } finally{
             ConexaoFactory.fecharConexao();
         }
         return result;
     }
     
-    public void salvarUsuario(Usuario usuario){
+    public void salvarUsuario(Usuario usuario) throws Exception{
         String sql = "insert into usuario values(0, ?,?,?,?)";
         try(PreparedStatement preparedStatement = ConexaoFactory.getConexao().prepareStatement(sql);) {
             preparedStatement.setString(1, usuario.getNome());
