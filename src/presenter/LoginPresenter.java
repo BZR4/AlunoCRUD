@@ -41,11 +41,21 @@ public class LoginPresenter {
         return true;
     }    
     
-    public void login(Usuario usuario){
+    public void login(){
         try {
-            validarCampos(usuario.getUsuario(), usuario.getSenha());
-            usuario.setSenha(PasswordUtil.converterMD5(usuario.getSenha()));
-            UsuarioDAO usuarioDAO = new UsuarioDAO();        
+            String username = view.getjTextFieldUsuario().getText().trim();
+            char[] password = view.getjPasswordFieldSenha().getPassword();
+            String senha = new String(password);
+            
+            validarCampos(username, senha);
+            
+            Usuario usuario = new Usuario();
+            
+            usuario.setSenha(PasswordUtil.converterMD5(senha));
+            usuario.setUsuario(username);
+            
+            UsuarioDAO usuarioDAO = new UsuarioDAO();   
+            
             if(usuarioDAO.buscarDadosLogin(usuario)){
                 abrirAplicacao();
             }else{

@@ -128,15 +128,8 @@ public class LoginView extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButtonLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonLoginActionPerformed
-        // TODO add your handling code here:
-        String nomeUsuario = jTextFieldUsuario.getText().trim();
-        String senha = new String(jPasswordFieldSenha.getPassword());
-        
-        Usuario usuario = new Usuario();
-        usuario.setUsuario(nomeUsuario);
-        usuario.setSenha(senha);
-        
-        loginPresenter.login(usuario);        
+        // TODO add your handling code here:       
+        loginPresenter.login();        
     }//GEN-LAST:event_jButtonLoginActionPerformed
 
 
