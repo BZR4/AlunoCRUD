@@ -5,6 +5,13 @@
  */
 package view;
 
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.JButton;
+import javax.swing.JOptionPane;
+import javax.swing.JPasswordField;
+import javax.swing.JTable;
+import javax.swing.JTextField;
 import presenter.UsuarioPresenter;
 
 /**
@@ -29,6 +36,44 @@ public class CadastroUsuarioView extends javax.swing.JInternalFrame {
         this.presenter = new UsuarioPresenter(this);
     }
 
+    public JButton getjButtonApagarUsuario() {
+        return jButtonApagarUsuario;
+    }
+
+    public JButton getjButtonAtualizarUsuario() {
+        return jButtonAtualizarUsuario;
+    }
+
+    public JButton getjButtonNovoUsuario() {
+        return jButtonNovoUsuario;
+    }
+
+    public JPasswordField getjPasswordFieldSenha() {
+        return jPasswordFieldSenha;
+    }
+
+    public JTable getjTableAlunos() {
+        return jTableAlunos;
+    }
+
+    public JTextField getjTextFieldEmail() {
+        return jTextFieldEmail;
+    }
+
+    public JTextField getjTextFieldId() {
+        return jTextFieldId;
+    }
+
+    public JTextField getjTextFieldNome() {
+        return jTextFieldNome;
+    }
+
+    public JTextField getjTextFieldUsuario() {
+        return jTextFieldUsuario;
+    }
+    
+    
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -37,7 +82,6 @@ public class CadastroUsuarioView extends javax.swing.JInternalFrame {
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
-        java.awt.GridBagConstraints gridBagConstraints;
 
         jPanel1 = new javax.swing.JPanel();
         jButtonAtualizarUsuario = new javax.swing.JButton();
@@ -55,11 +99,18 @@ public class CadastroUsuarioView extends javax.swing.JInternalFrame {
         jLabel5 = new javax.swing.JLabel();
         jTextFieldEmail = new javax.swing.JTextField();
         jLabel6 = new javax.swing.JLabel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jTableAlunos = new javax.swing.JTable();
 
         setClosable(true);
         setTitle("Cadastro de Usuários");
 
         jButtonAtualizarUsuario.setText("Salvar");
+        jButtonAtualizarUsuario.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonAtualizarUsuarioActionPerformed(evt);
+            }
+        });
 
         jButtonApagarUsuario.setText("Apagar");
 
@@ -125,17 +176,13 @@ public class CadastroUsuarioView extends javax.swing.JInternalFrame {
                     .addComponent(jLabel4))
                 .addGap(18, 18, 18)
                 .addGroup(jPanelDadosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanelDadosLayout.createSequentialGroup()
-                        .addGroup(jPanelDadosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jTextFieldNome, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jTextFieldId, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(jPanelDadosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                .addComponent(jPasswordFieldSenha, javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(jTextFieldUsuario, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(116, 116, 116))
-                    .addGroup(jPanelDadosLayout.createSequentialGroup()
-                        .addComponent(jTextFieldEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(116, 116, 116))))
+                    .addComponent(jTextFieldNome, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jTextFieldId, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(jPanelDadosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                        .addComponent(jPasswordFieldSenha, javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(jTextFieldUsuario, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jTextFieldEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(116, 116, 116))
         );
         jPanelDadosLayout.setVerticalGroup(
             jPanelDadosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -166,6 +213,26 @@ public class CadastroUsuarioView extends javax.swing.JInternalFrame {
         jLabel6.setFont(new java.awt.Font("Lucida Grande", 1, 24)); // NOI18N
         jLabel6.setText("Cadastro de Usuário");
 
+        jTableAlunos.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null}
+            },
+            new String [] {
+                "Id", "Nome", "Usuario", "Senha", "E-mail"
+            }
+        ));
+        jScrollPane1.setViewportView(jTableAlunos);
+        if (jTableAlunos.getColumnModel().getColumnCount() > 0) {
+            jTableAlunos.getColumnModel().getColumn(0).setPreferredWidth(50);
+            jTableAlunos.getColumnModel().getColumn(1).setPreferredWidth(150);
+            jTableAlunos.getColumnModel().getColumn(2).setPreferredWidth(75);
+            jTableAlunos.getColumnModel().getColumn(3).setPreferredWidth(75);
+            jTableAlunos.getColumnModel().getColumn(4).setPreferredWidth(150);
+        }
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -180,6 +247,10 @@ public class CadastroUsuarioView extends javax.swing.JInternalFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 268, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(176, 176, 176))
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jScrollPane1)
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -192,16 +263,26 @@ public class CadastroUsuarioView extends javax.swing.JInternalFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jScrollPane1)
+                .addContainerGap())
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButtonNovoUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonNovoUsuarioActionPerformed
-        // TODO add your handling code here:
-        presenter.testPresenterClick();
+        try {
+            // TODO add your handling code here:
+            presenter.salvarNovoUsuario();
+        } catch (Exception ex) {
+            JOptionPane.showMessageDialog(null, ex.getLocalizedMessage());
+        }
     }//GEN-LAST:event_jButtonNovoUsuarioActionPerformed
+
+    private void jButtonAtualizarUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAtualizarUsuarioActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButtonAtualizarUsuarioActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -217,6 +298,8 @@ public class CadastroUsuarioView extends javax.swing.JInternalFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanelDados;
     private javax.swing.JPasswordField jPasswordFieldSenha;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTable jTableAlunos;
     private javax.swing.JTextField jTextFieldEmail;
     private javax.swing.JTextField jTextFieldId;
     private javax.swing.JTextField jTextFieldNome;
