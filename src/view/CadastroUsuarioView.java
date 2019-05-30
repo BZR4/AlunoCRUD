@@ -31,7 +31,7 @@ public class CadastroUsuarioView extends javax.swing.JInternalFrame {
     /**
      * Creates new form CadastroAluno
      */
-    public CadastroUsuarioView() {        
+    public CadastroUsuarioView() throws Exception {        
         initComponents();
         this.presenter = new UsuarioPresenter(this);
     }
@@ -215,13 +215,10 @@ public class CadastroUsuarioView extends javax.swing.JInternalFrame {
 
         jTableAlunos.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null}
+                {null, null, null, null}
             },
             new String [] {
-                "Id", "Nome", "Usuario", "Senha", "E-mail"
+                "Id", "Nome", "Usuario", "E-mail"
             }
         ));
         jScrollPane1.setViewportView(jTableAlunos);
@@ -229,8 +226,7 @@ public class CadastroUsuarioView extends javax.swing.JInternalFrame {
             jTableAlunos.getColumnModel().getColumn(0).setPreferredWidth(50);
             jTableAlunos.getColumnModel().getColumn(1).setPreferredWidth(150);
             jTableAlunos.getColumnModel().getColumn(2).setPreferredWidth(75);
-            jTableAlunos.getColumnModel().getColumn(3).setPreferredWidth(75);
-            jTableAlunos.getColumnModel().getColumn(4).setPreferredWidth(150);
+            jTableAlunos.getColumnModel().getColumn(3).setPreferredWidth(150);
         }
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());

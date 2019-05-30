@@ -7,6 +7,7 @@ package presenter;
 
 import dao.UsuarioDAO;
 import java.util.List;
+import javax.swing.table.DefaultTableModel;
 import model.Usuario;
 import util.PasswordUtil;
 import view.CadastroUsuarioView;
@@ -18,8 +19,9 @@ import view.CadastroUsuarioView;
 public class UsuarioPresenter {
     private CadastroUsuarioView view;
 
-    public UsuarioPresenter(CadastroUsuarioView view) {
+    public UsuarioPresenter(CadastroUsuarioView view) throws Exception {
         this.view = view;
+        carregarTabela();
     }
 
     public CadastroUsuarioView getView() {
@@ -36,10 +38,24 @@ public class UsuarioPresenter {
                         .getPassword())));
         UsuarioDAO dao = new UsuarioDAO();
         dao.salvarUsuario(usuario);
+        carregarTabela();
     }
     
     public void carregarTabela() throws Exception{
         UsuarioDAO dao = new UsuarioDAO();
-        List<Usuario> usuarios = dao.buscarTodosUsuarios(); 
+        List<Usuario> usuarios = dao.buscarTodosUsuarios();                      
+        DefaultTableModel model = (DefaultTableModel) view.getjTableAlunos().getModel();
+        for (int i = model.getRowCount() -1 ; i >= 0; i--) {
+            model.removeRow(i);
+        }
+        int i = 0;
+        for (Usuario usuario : usuarios) {
+            model.addRow(new String[0]);
+            view.getjTableAlunos().setValueAt(usuario.getId(), i, 0);
+            view.getjTableAlunos().setValueAt(usuario.getNome(), i, 1);
+            view.getjTableAlunos().setValueAt(usuario.getUsuario(), i, 2);
+            view.getjTableAlunos().setValueAt(usuario.getEmail(), i, 3);
+            i++;
+        }
     }
 }
