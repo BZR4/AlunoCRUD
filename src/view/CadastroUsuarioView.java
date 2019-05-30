@@ -220,7 +220,15 @@ public class CadastroUsuarioView extends javax.swing.JInternalFrame {
             new String [] {
                 "Id", "Nome", "Usuario", "E-mail"
             }
-        ));
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
         jScrollPane1.setViewportView(jTableAlunos);
         if (jTableAlunos.getColumnModel().getColumnCount() > 0) {
             jTableAlunos.getColumnModel().getColumn(0).setPreferredWidth(50);

@@ -43,11 +43,16 @@ public class UsuarioPresenter {
     
     public void carregarTabela() throws Exception{
         UsuarioDAO dao = new UsuarioDAO();
-        List<Usuario> usuarios = dao.buscarTodosUsuarios();                      
-        DefaultTableModel model = (DefaultTableModel) view.getjTableAlunos().getModel();
+        
+        List<Usuario> usuarios = dao.buscarTodosUsuarios();  
+        
+        DefaultTableModel model = (DefaultTableModel) 
+                view.getjTableAlunos().getModel();
+        
         for (int i = model.getRowCount() -1 ; i >= 0; i--) {
             model.removeRow(i);
         }
+        
         int i = 0;
         for (Usuario usuario : usuarios) {
             model.addRow(new String[0]);
